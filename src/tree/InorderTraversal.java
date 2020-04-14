@@ -10,15 +10,15 @@ import java.util.Stack;
 3、若root为空，则从栈中弹出一个结点并访问，并令root = root.right，继续重复步骤2。
 4、当栈为空并且root也为空时，循环结束。
 */
-public class InOrder {
-    public void recursiveInOrder(TreeNode root){
+public class InorderTraversal {
+    public void recursiveInorderTraversal(TreeNode root){
         if(root == null) return;
-        recursiveInOrder(root.left);
+        recursiveInorderTraversal(root.left);
         System.out.println(root.val);
-        recursiveInOrder(root.right);
+        recursiveInorderTraversal(root.right);
     }
 
-    public List<Integer> nonRecursiveInorder(TreeNode root){
+    public List<Integer> nonRecursiveInorderTraversal(TreeNode root){
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         while(!stack.isEmpty() || root != null){

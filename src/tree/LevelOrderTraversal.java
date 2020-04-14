@@ -4,8 +4,8 @@ import java.util.*;
 /*
 * 层次遍历,将每层分别数据保存到list中
 * */
-public class LevelOrder {
-    public List<List<Integer>> levelOrder(TreeNode root){
+public class LevelOrderTraversal {
+    public List<List<Integer>> levelOrderTraversal(TreeNode root){
         List<List<Integer>> res = new ArrayList<>();
         if(root == null) return res;
 
