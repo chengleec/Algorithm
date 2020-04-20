@@ -1,4 +1,4 @@
-package dynamicprograming;
+package dp;
 
 public class MaxProduct {
     public int maxProduct(int[] nums) {

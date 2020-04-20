@@ -1,4 +1,4 @@
-package dynamicprograming;
+package dp;
 
 public class HouseRobber {
     public int houseRobber1(int[] nums){
