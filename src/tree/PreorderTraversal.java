@@ -13,7 +13,7 @@ import java.util.Stack;
 public class PreorderTraversal {
     public void recursivePreorderTraversal(TreeNode root){
         if(root == null) return;
-        System.out.println("root.val");
+        System.out.println(root.val);
         recursivePreorderTraversal(root.left);
         recursivePreorderTraversal(root.right);
     }
@@ -25,8 +25,10 @@ public class PreorderTraversal {
         while(!stack.empty()){
             root = stack.pop();
             res.add(root.val);
-            if(root.right != null) stack.push(root.right);
-            if(root.left != null) stack.push(root.left);
+            if(root.right != null)
+                stack.push(root.right);
+            if(root.left != null)
+                stack.push(root.left);
         }
         return res;
     }
