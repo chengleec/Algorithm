@@ -1,15 +1,15 @@
-package linkedlist;
+package others;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class LRUCache {
+public class LRUCacheO1 {
 
     private int capacity;
     private DoubleListNode head, tail;
     private HashMap<Integer,DoubleListNode> map = new HashMap<>();
 
-    public LRUCache(int capacity){
+    public LRUCacheO1(int capacity){
         this.capacity = capacity;
 
         head = new DoubleListNode(0,0);
@@ -36,14 +36,12 @@ public class LRUCache {
         }
     }
     public int get(int key){
-        int res = -1;
-        if(map.containsKey(key)){
-            DoubleListNode node = map.get(key);
-            res = node.value;
-            remove(node);
-            addToHead(node);
-        }
-        return res;
+        if(!map.containsKey(key))
+            return -1;
+        DoubleListNode node = map.get(key);
+        remove(node);
+        addToHead(node);
+        return node.value;
     }
     public void addToHead(DoubleListNode node){
         node.next = head.next;

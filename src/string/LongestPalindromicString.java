@@ -48,7 +48,7 @@ public class LongestPalindromicString {
         return start < end ? s.substring(start + 1, end) : "";
     }
 
-    // Manacher算法
+    // Manacher 算法
     public String palindromic3(String s){
 
         StringBuffer str = new StringBuffer(s);

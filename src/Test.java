@@ -1,18 +1,12 @@
-import dynamicprograming.MaxProduct;
-import linkedlist.AddTwoNumbers;
-import linkedlist.ListNode;
-import linkedlist.RemoveLastKthNode;
-import string.CountString;
-import string.IsRotation;
-import string.RotateWord;
-
-import java.util.*;
+import array.MaxProductSubarray;
 
 
 public class Test {
 
     public static void main(String[] args) {
-        int[][] nums = {};
-        System.out.println(nums);
+        int[] nums = new int[]{-4,-3,-2};
+        int res = new MaxProductSubarray().maxProduct(nums);
+        System.out.println(res);
     }
 }
+

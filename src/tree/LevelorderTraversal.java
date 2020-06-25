@@ -7,20 +7,22 @@ import java.util.*;
 public class LevelorderTraversal {
     public List<List<Integer>> levelorderTraversal(TreeNode root){
         List<List<Integer>> res = new ArrayList<>();
-        if(root == null) return res;
-
+        if (root == null) return res;
+        List<Integer> list = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while(!q.isEmpty()){
-            List<Integer> level = new ArrayList<>();
+
+        q.offer(root);
+        while (!q.isEmpty()){
+            // 队列 q 大小随时在变，因此在遍历前必须确定队列中的元素个数
             int cnt = q.size();
-            for(int i=0;i<cnt;i++){
+            for (int i = 0; i < cnt; i++){
                 root = q.poll();
-                level.add(root.val);
-                if(root.left != null) q.add(root.left);
-                if(root.right != null) q.add(root.right);
+                list.add(root.val);
+                if (root.left != null) q.offer(root.left);
+                if (root.right != null) q.offer(root.right);
             }
-            res.add(level);
+            res.add(new ArrayList<>(list));
+            list.clear();
         }
         return res;
     }
