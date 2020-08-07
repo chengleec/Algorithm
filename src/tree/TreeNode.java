@@ -1,7 +1,5 @@
 package tree;
 
-import com.sun.source.tree.Tree;
-
 public class TreeNode {
     public int val;
     public TreeNode left;

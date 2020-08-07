@@ -56,7 +56,7 @@ public class LRUCacheO1 {
     class DoubleListNode{
         int key, value;
         DoubleListNode pre, next;
-        DoubleListNode(int x, int y){
+        public DoubleListNode(int x, int y){
             this.key = x;
             this.value = y;
         }

@@ -1,6 +1,5 @@
 package sort;
 
-
 public class BubbleSort {
     public void bubbleSort(int[] nums){
         for(int i=0;i<nums.length;i++){
