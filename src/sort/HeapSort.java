@@ -24,8 +24,10 @@ public class HeapSort {
         int right = left + 1;
         int largest = i;
         while(left < size){
+            // 找出父节点和两个子节点中最大的那个节点的下标
             if(nums[left] > nums[largest]) largest = left;
             if(right < size && nums[right] > nums[largest]) largest = right;
+            // 如果最大节点不是父节点就交换，是就不管
             if(largest != i) swap(nums,i,largest);
             else break;
             i = largest;

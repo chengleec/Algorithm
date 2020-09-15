@@ -8,45 +8,26 @@ import java.util.Stack;
  * @description
  */
 public class LongestValidParentheses {
-    /**
-     * if s(i) == '(':
-     *      dp[i] = 0;
-     *      cnt ++;
-     * else if s(i) == ')' && cnt > 0:
-     *      dp[i] = dp[i-1] + 2;
-     *      dp[i] += dp[i-dp[i]];
-     *      cnt --;
-     */
-    public static int longestValidParenthesesByDP(String s) {
-
-        int res = 0, cnt = 0;
+    public int longestValidParentheses(String s) {
         int[] dp = new int[s.length()];
-
-        for (int i = 0; i < s.length(); i++){
-            if (s.charAt(i) == ')' && cnt > 0){
-                dp[i] = dp[i-1] + 2;
-                dp[i] += (i - dp[i]) >= 0 ? dp[i - dp[i]] : 0;
-                res = Math.max(res, dp[i]);
-                cnt --;
-            }else if (s.charAt(i) == '(') {
-                cnt ++;
-            }
-        }
-        return res;
-    }
-
-    public static int longestValidParenthesesByStack(String s) {
         int res = 0;
-        Stack<Integer> st = new Stack<>();
-        st.push(-1);
-        for (int i = 0; i < s.length(); i++){
-            if (s.charAt(i) == '(')
-                st.push(i);
-            else {
-                st.pop();
-                if (st.isEmpty()) st.push(i);
-                else res = Math.max(res, i - st.peek());
+        for (int i = 1; i < s.length(); i++){
+            if (s.charAt(i) == '(') continue;
+            if (s.charAt(i-1) == '('){
+                dp[i] = 2;
+                if (i >= 2){
+                    dp[i] += dp[i-2];
+                }
+            }else if (dp[i-1] > 0){
+                int lastSingleIndex = i - dp[i-1] - 1;
+                if (lastSingleIndex >= 0 && s.charAt(lastSingleIndex) == '('){
+                    dp[i] = dp[i-1] + 2;
+                    if (lastSingleIndex - 1 >= 0){
+                        dp[i] += dp[lastSingleIndex-1];
+                    }
+                }
             }
+            res = Math.max(res, dp[i]);
         }
         return res;
     }

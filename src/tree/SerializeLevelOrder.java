@@ -3,7 +3,6 @@ package tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//TODO：理解啊
 public class SerializeLevelOrder {
     /*
     序列化;
